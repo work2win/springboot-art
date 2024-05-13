@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.workwin.art.model.AccountTransfer;
 import com.workwin.art.model.CustomerItem;
 import com.workwin.art.service.CustomerItemService;
 import com.workwin.art.repository.CustomerItemRepository;
@@ -54,6 +55,7 @@ public class CustomerItemController {
 		return customerItemRepository.save(customerItem);
 	}
 	
+		
 	@PutMapping(("/customers/{id}"))
 	public ResponseEntity<CustomerItem> updateCustomerItem(@PathVariable int id, @RequestBody CustomerItem customerItem){
 		

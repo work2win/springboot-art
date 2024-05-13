@@ -1,13 +1,8 @@
 package com.workwin.art;
 
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-import com.workwin.art.repository.ArtTypeRepository;
-import com.workwin.art.repository.HotelRepository;
-import com.workwin.art.repository.ProductRepository;
-
 
 
 @SpringBootApplication
@@ -16,16 +11,16 @@ public class SpringbootArtApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringbootArtApplication.class, args);
 	}
-	
-	@Autowired
-	private HotelRepository hotelRepository;
-	@Autowired
-	private ProductRepository productRepository;
-	@Autowired
-	private ArtTypeRepository artTypeRepository;
 
-	
-	
+	/*
+	 * @Autowired private HotelRepository hotelRepository;
+	 * 
+	 * @Autowired private ProductRepository productRepository;
+	 * 
+	 * @Autowired private ArtTypeRepository artTypeRepository;
+	 * 
+	 * 
+	 */
 	public void run(String... args) throws Exception {		
 		/*
 		
