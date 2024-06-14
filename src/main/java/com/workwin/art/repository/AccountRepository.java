@@ -15,6 +15,7 @@ public interface AccountRepository extends JpaRepositoryImplementation<Account, 
 		
 	@Query(value = "select * from account", nativeQuery = true)
 	List<Account> getAcounts();
+	
 		
 	@Transactional
 	@Modifying
@@ -25,5 +26,38 @@ public interface AccountRepository extends JpaRepositoryImplementation<Account, 
 	@Modifying
 	@Query(value = "update account set balance = balance - :balance where accountnum = :accountnum", nativeQuery = true)
 	int withdraw(Long accountnum, Long balance);	
+	
+	
+	@Transactional
+	@Modifying
+	@Query(value = "update account set balance = balance + :balance where accountnum = :accountnum", nativeQuery = true)
+	int deposits(int accountnum, float balance);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "update account set balance = balance - :balance where accountnum = :accountnum", nativeQuery = true)
+	int withdraws(int accountnum, float balance);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "update accountsavings set balance = balance + :balance where accountnum = :accountnum", nativeQuery = true)
+	int depositAccountSaving(int accountnum, float balance);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "update accountsavings set balance = balance - :balance where accountnum = :accountnum", nativeQuery = true)
+	int withdrawAccountSaving(int accountnum, float balance);
+	
+	
+	@Transactional
+	@Modifying
+	@Query(value = "insert into transactions (accountnum, refOrcheckNo, debit, credit) values (:accountnum, :refOrcheckNo, :debit, :credit)", nativeQuery = true)
+	int transactionCredit(int accountnum, String refOrcheckNo, float debit, float credit);
+	
+	@Transactional
+	@Modifying
+	@Query(value = "insert into transactions (accountnum, refOrcheckNo, debit, credit) values (:accountnum, :refOrcheckNo, :debit, :credit)", nativeQuery = true)
+	int transactionDebit(int accountnum, String refOrcheckNo, float debit, float credit);
+	
 	
 }
