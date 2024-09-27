@@ -1,7 +1,7 @@
-#Spring boot Interceptors
+# Spring boot Interceptors
 Spring Boot Interceptor is an additional component that will intercept every request and response dispatch and perform some operations on it. Interceptors in web applications play a major in performing initial or finalization work. Interceptors have one primary purpose – “To intercept an incoming or outgoing request”
 
-#Spring boot annotations cheat sheets
+# Spring boot annotations cheat sheets
 
 @SpringBootApplication entry point of spring boot application
 @EnableAutoConfiguration enables auto configuration
