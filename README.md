@@ -3,9 +3,9 @@ Spring Boot Interceptor is an additional component that will intercept every req
 
 # Spring boot annotations cheat sheets
 
-@SpringBootApplication entry point of spring boot application.
-@EnableAutoConfiguration enables auto configuration.
-@ComponentScan automatically scans the component.
+**@SpringBootApplication** entry point of spring boot application.
+**@EnableAutoConfiguration** enables auto configuration.
+**@ComponentScan** automatically scans the component.
 # springboot-art
  spring boot 
 
