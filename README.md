@@ -12,6 +12,7 @@ Spring Boot Interceptor is an additional component that will intercept every req
 **@Access** - Used to define the access type, either field or property. Default value is field and if you want hibernate to use getter/setter methods then you need to set it to property.
 **@Column**-Create a column within the table
 **@Id**-Specify the primary key of an entity
+The **@PathVariable** annotation is used to retrieve data from the URL path
 # springboot-art
  spring boot 
 
