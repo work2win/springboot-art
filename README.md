@@ -6,6 +6,7 @@ Spring Boot Interceptor is an additional component that will intercept every req
 **@SpringBootApplication** entry point of spring boot application.
 **@EnableAutoConfiguration** enables auto configuration.
 **@ComponentScan** automatically scans the component.
+**@Controller** is used to mark classes as Spring MVC Controller. **@RestController** annotation is a special controller used in RESTful Web services, and it's the combination of @Controller and @ResponseBody annotation. It is a specialized version of @Component annotation.** @Component** is an annotation that allows Spring to detect our custom beans automatically. In other words, without having to write any explicit code, Spring will: Scan our application for classes annotated with @Component. Instantiate them and inject any specified dependencies into them.
 # springboot-art
  spring boot 
 
