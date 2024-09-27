@@ -1,6 +1,7 @@
 package com.workwin.art.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.validation.Valid;
 
@@ -21,6 +22,7 @@ import com.workwin.art.model.CustomerItem;
 import com.workwin.art.service.CustomerItemService;
 import com.workwin.art.repository.CustomerItemRepository;
 
+import java.util.ArrayList;
 @CrossOrigin
 @RestController
 public class CustomerItemController {
@@ -33,9 +35,51 @@ public class CustomerItemController {
 	
 	@GetMapping("/customers")
 	public List<CustomerItem> getCustomerItems(){
+		
+		meth(customerItemService.getCustomerItems());
 		return customerItemService.getCustomerItems();
 	}
 	
+	private void meth(List<CustomerItem> customerItems) {
+		// TODO Auto-generated method stub
+		int length = customerItems.size();
+		List<Integer> temp = new ArrayList<Integer>();
+		List<CustomerItem> cu = customerItems;	
+		
+		
+		for(int i=0; i<cu.size(); i++) {
+			for(int j=0;j<cu.size();j++) {
+				if(i!=j) {
+					if(cu.get(i).getCost() + cu.get(j).getCost() == 3000) {
+						//System.out.println(cu.get(i).getCost()+" "+ cu.get(j).getCost());
+						if(!temp.contains(cu.get(i).getId())) {
+							temp.add(cu.get(i).getId());
+							System.out.println(cu.get(i).getBuissitem() + " "+ cu.get(i).getName() +" "+ cu.get(i).getCost());
+							
+							//System.out.println(temp);
+						}
+						else if(!temp.contains(cu.get(j).getId())) {
+							temp.add(cu.get(j).getId());
+							System.out.println(cu.get(j).getBuissitem() + " "+ cu.get(j).getName() +" "+ cu.get(j).getCost());
+						}
+						else
+							continue;
+					}
+				}
+				else
+					continue;
+			}
+			
+		}
+		System.out.println(temp);
+		List squareTemp = temp.stream().map(x->x*x).collect(Collectors.toList());
+		System.out.println(squareTemp);
+		
+		
+		
+		
+	}
+
 	@GetMapping("/customers/{id}")
 	public CustomerItem getCustomerItem(@PathVariable int id) {
 		System.out.println("*** "+id);

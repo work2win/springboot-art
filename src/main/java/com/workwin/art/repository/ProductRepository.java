@@ -12,5 +12,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer>{
 	Product findByQuantity(int quantity);
 
 	Product findById(Product orElse);
+	
+	Product findByPrice(double price);
 
 }

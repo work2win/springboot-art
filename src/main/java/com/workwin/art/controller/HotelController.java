@@ -2,7 +2,11 @@ package com.workwin.art.controller;
 
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import javax.validation.Valid;
 
@@ -37,7 +41,26 @@ public class HotelController {
 	}
 	
 	@GetMapping("hotel")
-	public List<Hotel> getHotels(){		
+	public List<Hotel> getHotels(){	
+		List<Hotel> hotel = hotelService.getHotel();
+		List<String> name = new ArrayList<>();
+		int i = 0;
+		
+		while(i<hotel.size()) {
+			System.out.println(hotel.get(i).getBuissdesc());
+			
+			
+			name.add(hotel.get(i).getName());
+			i++;
+		}
+		System.out.println(name);
+		
+		//Collections.sort(name);
+		List<String> sorted = name.stream().sorted().collect(Collectors.toList());
+		System.out.println("sorted names "+sorted);
+		Stream num = Stream.of(sorted);
+		num.forEach(System.out::println);
+		
 		return hotelService.getHotel();
 	}
 	
