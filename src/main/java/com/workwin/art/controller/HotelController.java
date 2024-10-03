@@ -83,5 +83,7 @@ public class HotelController {
 		hotelRepository.deleteById(hid);
 		return ResponseEntity.ok().build();
 	}
+	
+	
 
 }

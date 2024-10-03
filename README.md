@@ -9,3 +9,7 @@
  
 # Access the app
  http://localhost:9091/rooms
+ 
+# Swagger
+ Add the maven dependencies in pom.xml for springFox swagger
+ Add the pathmatcher in application. properties
