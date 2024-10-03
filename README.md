@@ -27,4 +27,4 @@ The **@PathVariable** annotation is used to retrieve data from the URL path
  
 # Swagger
  Add the maven dependencies in pom.xml for springFox swagger
- Add the pathmatcher in application. properties
+ Add the pathmatcher in application.properties
