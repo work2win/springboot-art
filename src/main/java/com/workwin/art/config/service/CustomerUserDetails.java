@@ -8,6 +8,7 @@ import java.util.stream.Collectors;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.workwin.art.model.User;
 
@@ -19,8 +20,16 @@ public class CustomerUserDetails implements UserDetails{
 	
 	
 	public CustomerUserDetails(User user) {
-		this.username = user.getPassword();
+		this.username = user.getUsername();
 		this.password = user.getPassword();
+		if(this.username.equalsIgnoreCase("test")) {
+			BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+			//bCryptPasswordEncoder.encode(user.getPassword());
+			System.out.println(bCryptPasswordEncoder.encode(user.getPassword()));
+			//this.password = "$2a$12$FuKK4Ni2ILqIdDgxoxhpZuFfhZvmctnPCBYZ7DCLL5S2sgzqalyEq";
+			this.password = bCryptPasswordEncoder.encode(user.getPassword());
+		}
+		
 		this.authorities = Arrays.stream(user.getRole().split(","))
 				.map(SimpleGrantedAuthority::new)
 				.collect(Collectors.toList());
